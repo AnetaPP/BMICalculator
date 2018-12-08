@@ -1,13 +1,17 @@
+import java.text.DecimalFormat;
+
 public class BMICalculator implements Calculator {
 
     private double weight;
     private double height;
-    private static String bmi;
+    private static double bmi;
     private String interp;
 
     @Override
     public String calculate(double weight, double height) {
-        return bmi;
+        bmi = weight/Math.pow(height/100,2);
+        DecimalFormat f = new DecimalFormat("##.00");
+        return f.format(bmi);
     }
 
     public String interpret(String bmi){

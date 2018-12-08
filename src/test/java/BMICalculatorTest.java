@@ -17,9 +17,9 @@ public class BMICalculatorTest {
     }
 
     @Test
-    @Parameters({"50.00 ,175.00, 16,33",
-                "60.00 ,165.00, 22,04",
-                "100.00,155.00, 41,62"})
+    @Parameters({"50.00 ,175.00, 16.33",
+                "60.00 ,165.00, 22.04",
+                "100.00,155.00, 41.62"})
     public void testBMICalculatorCalculateBMI(double weight, double height, String exp){
 
         assertEquals(exp,calc.calculate(weight,height));
