@@ -1,4 +1,6 @@
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 public class BMICalculator implements Calculator {
 
@@ -8,13 +10,19 @@ public class BMICalculator implements Calculator {
     private String interp;
 
     @Override
-    public String calculate(double weight, double height) {
-        bmi = weight/Math.pow(height/100,2);
-        DecimalFormat f = new DecimalFormat("##.00");
-        return f.format(bmi);
+    public String calculate(double weight, double height) throws IllegalArgumentException{
+       if(weight >0 & height>0) {
+           bmi = weight / Math.pow(height / 100, 2);
+           DecimalFormat f = new DecimalFormat("##.00", DecimalFormatSymbols.getInstance(Locale.US));
+           return f.format(bmi);
+       } throw new IllegalArgumentException();
     }
 
     public String interpret(String bmi){
+
+        String  arr [][] = new String [11][3];
+
+
         return interp;
     }
 
