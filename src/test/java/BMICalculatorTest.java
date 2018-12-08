@@ -35,7 +35,7 @@ public class BMICalculatorTest {
     }
 
     @Test
-    @Parameters({"17, Severely underweight",
+    @Parameters({"17, Underweight",
                 "23,Normal (healthy weight)",
                     "28.5, Overweight"})
     public void testInterpretation(String bmi, String label){

@@ -4,15 +4,17 @@ import java.util.Locale;
 
 public class BMICalculator implements Calculator {
 
-    private double weight;
-    private double height;
-    private static double bmi;
-    private String interp;
+
+//    BMICalculator(double weight, double height){
+//      if(weight <= 0 || height <= 0){
+//          throw new IllegalArgumentException("Illegal");
+//      }
+//    }
 
     @Override
     public String calculate(double weight, double height) throws IllegalArgumentException{
        if(weight >0 & height>0) {
-           bmi = weight / Math.pow(height / 100, 2);
+           double bmi = weight / Math.pow(height / 100, 2);
            DecimalFormat f = new DecimalFormat("##.00", DecimalFormatSymbols.getInstance(Locale.US));
            return f.format(bmi);
        } throw new IllegalArgumentException();
@@ -20,10 +22,35 @@ public class BMICalculator implements Calculator {
 
     public String interpret(String bmi){
 
-        String  arr [][] = new String [11][3];
+
+        String  bmiChart [][] = {
+                {"0","Very severely underweight "},
+                {"15","Severely underweight"},
+                {"16","Underweight"},
+                {"18.5","Normal (healthy weight)"},
+                {"25","Overweight"},
+                {"30","Obese Class I (Moderately obese)"},
+                {"35","Obese Class II (Severely obese)"},
+                {"40","Obese Class III (Very severely obese)"},
+                {"45","Obese Class IV (Morbidly Obese)"},
+                {"50","Obese Class V (Super Obese)"},
+                {"60","Obese Class VI (Hyper Obese)"}
+        };
+
+        double bmiD = Double.parseDouble(bmi);
+
+        for( int i = 0;i<=(bmiChart.length-1);i++){
+
+            double temp = Double.parseDouble(bmiChart[i][0]);
+            double nextTemp = Double.parseDouble(bmiChart[i+1][0]);
+
+           if(bmiD < nextTemp) return bmiChart [i][1];
+
+        }
 
 
-        return interp;
+
+        return null;
     }
 
 }
