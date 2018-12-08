@@ -1,4 +1,4 @@
 public interface Calculator {
-    String calculate();
-    String interpret();
+    String calculate(double weight, double height);
+    String interpret(String bmi);
 }
