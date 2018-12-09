@@ -2,18 +2,14 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-public class BMICalculator implements Calculator {
+public class BMICalculator implements Calculator<String> {
 
 
-//    BMICalculator(double weight, double height){
-//      if(weight <= 0 || height <= 0){
-//          throw new IllegalArgumentException("Illegal");
-//      }
-//    }
+    public String calculate(double ...params) throws IllegalArgumentException{
+       double weight = params[0];
+       double height = params[1];
 
-    @Override
-    public String calculate(double weight, double height) throws IllegalArgumentException{
-       if(weight >0 & height>0) {
+        if(weight >0 & height>0) {
            double bmi = weight / Math.pow(height / 100, 2);
            DecimalFormat f = new DecimalFormat("##.00", DecimalFormatSymbols.getInstance(Locale.US));
            return f.format(bmi);
