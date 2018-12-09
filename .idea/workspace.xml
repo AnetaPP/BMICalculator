@@ -577,8 +577,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BMICalculatorTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BMICalculatorTest.testInterpretation" />
         <item itemvalue="JUnit.BMICalculatorTest.testBMICalculatorIllegalArguments" />
         <item itemvalue="JUnit.BMICalculatorTest.testBMICalculatorCalculateBMI" />
