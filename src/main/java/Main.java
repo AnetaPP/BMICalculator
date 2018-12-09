@@ -1,3 +1,6 @@
+import jdk.internal.util.xml.impl.Input;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -12,28 +15,41 @@ public class Main {
 
 
         Scanner scanner = new Scanner(System.in);
-        double height;
-        double weight;
+        double height = 0.00;
+        double weight = 0.00;
+        System.out.println("Please enter your height in centimeters: ");
 
+        while(height<=0.00){
             try{
-                System.out.println("Please enter your height in centimeters: ");
                 height = scanner.nextDouble();
-                    }catch(IllegalArgumentException ex) {
-                System.out.println("Enter again");
+                if(height<=0.00){
+                    System.out.println("Incorrect height. Please enter your height again:");}
+                    }catch(InputMismatchException ex) {
+                System.out.println("Incorrect height. Please enter your height again:");
+                scanner.next();
             }
+        }
 
+        System.out.println("Please enter your weight in kilograms: ");
+
+        while(weight<=0.00) {
             try{
-                System.out.println("Please enter your weight in kilograms: ");
                 weight = scanner.nextDouble();
-                    }catch(IllegalArgumentException ex) {
-                System.out.println("Enter again");
+                if(weight<=0.00){
+                System.out.println("Incorrect weight. Please enter your weight again:");
+                }
+            }catch(InputMismatchException ex) {
+                System.out.println("Incorrect weight. Please enter your weight again:");
+                scanner.next();
+
             }
+        }
 
             BMICalculator bmicalc = new BMICalculator();
             String newbmi = bmicalc.calculate(weight, height);
             String result = bmicalc.interpret(newbmi);
             System.out.println("Your result is " + newbmi + ", which means you are " + result + ".");
 
-        }
     }
 }
+

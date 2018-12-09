@@ -34,18 +34,18 @@ public class BMICalculator implements Calculator {
                 {"40","Obese Class III (Very severely obese)"},
                 {"45","Obese Class IV (Morbidly Obese)"},
                 {"50","Obese Class V (Super Obese)"},
-                {"60","Obese Class VI (Hyper Obese)"}
+                {"60","Obese Class VI (Hyper Obese)"},
+                {"100000","Out of bounds"}
         };
 
         double bmiD = Double.parseDouble(bmi);
 
-        for( int i = 0;i<=(bmiChart.length-1);i++){
+        for( int i = 0;i<(bmiChart.length-1);i++){
 
             double temp = Double.parseDouble(bmiChart[i][0]);
             double nextTemp = Double.parseDouble(bmiChart[i+1][0]);
 
            if(bmiD < nextTemp) return bmiChart [i][1];
-
         }
 
 
