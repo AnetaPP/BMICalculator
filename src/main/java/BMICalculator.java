@@ -2,12 +2,10 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-public class BMICalculator implements Calculator<String> {
+public class BMICalculator implements Calculator {
 
 
-    public String calculate(double ...params) throws IllegalArgumentException{
-       double weight = params[0];
-       double height = params[1];
+    public String calculate(double weight, double height) throws IllegalArgumentException{
 
         if(weight >0 & height>0) {
            double bmi = weight / Math.pow(height / 100, 2);
